@@ -2,9 +2,12 @@
   "name": "angular-typescript-gulp-seed",
   "private": true,
   "dependencies": {
-    "bootstrap": "~3.1.1",
-    "jquery": "~1.11.0",
+    "bootstrap": "~3.3.6",
+    "jquery": "~2.2.0",
     "angular": "1.5.0",
+    "angular-ui-router" : "0.2.18",
+    "angular-bootstrap" : "1.1.2",
+    "bootstrap-material-design" : "0.5.8",
     "todomvc-common": "~0.3.1"
   },
   "devDependencies": {
