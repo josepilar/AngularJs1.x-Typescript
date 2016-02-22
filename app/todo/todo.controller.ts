@@ -8,6 +8,7 @@ module todos {
     */
     export class TodoCtrl {
         private todos: TodoItem[];
+        private completeAll : boolean;
         // $inject annotation.
         // It provides $injector with information about dependencies to be injected into constructor
         // it is better to have it close to the constructor, because the parameters must match in count and type.
@@ -34,6 +35,7 @@ module todos {
             $scope.vm = this;
             // watching for events/changes in scope, which are caused by view/user input
             // if you subscribe to scope or event with lifetime longer than this controller, make sure you unsubscribe.
+            this.completeAll = false;
             $scope.$watch('todos', () => this.onTodos(), true);
             $scope.$watch<string>('location.path()', path => this.onPath(path));
             if ($location.path() === '') $location.path('/');
@@ -76,7 +78,10 @@ module todos {
             this.$scope.todos = this.todos = this.todos.filter(todoItem => !todoItem.completed);
         }
         markAll(completed: boolean) {
-            this.todos.forEach(todoItem => { todoItem.completed = completed; });
+            this.todos.forEach(todoItem => {
+                 todoItem.completed = completed;
+                 console.log('');
+            });
         }
     }
 } 

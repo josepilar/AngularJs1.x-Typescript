@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html ng-app="todomvc" data-framework="typescript">
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,8 @@
     <link rel="icon" href="favicon.ico" />
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" />
+    <link rel="stylesheet" href="../bower_components/bootstrap-material-design/dist/css/ripples.css" />
     <link rel="stylesheet" href="../bower_components/todomvc-common/base.css" />
     <!-- endbower -->
     <!-- endbuild -->
@@ -33,7 +34,7 @@
             </form>
         </section>
         <section id="main" ng-show="todos.length" ng-cloak>
-            <input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="vm.markAll(!allChecked)">
+            <input id="toggle-all" type="checkbox" ng-model="vm.completeAll" ng-click="vm.markAll(!vm.completeAll)">
             <label for="toggle-all">Mark all as complete</label>
             <ul id="todo-list">
                 <li ng-repeat="todo in todos | filter:statusFilter track by $index" ng-class="{completed: todo.completed, editing: todo == editedTodo}">
@@ -79,21 +80,16 @@
         </p>
     </section>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function (b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l; b[l] || (b[l] =
-            function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
-            e = o.createElement(i); r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
-    </script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="../bower_components/bootstrap-material-design/dist/js/material.js"></script>
+    <script src="../bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
     <script src="../bower_components/todomvc-common/base.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
